@@ -1,0 +1,26 @@
+ [
+        {
+            "id": 0,
+            "title": "Cardio",
+            "color": "#FF445B",
+            "time": 600,
+            "description": "Plank / Jumping jacks / Squats / Lunges / Push-ups",
+            "sound": "sea"
+        },
+        {
+            "id": 1,
+            "title": "Read a book",
+            "color": "#F6C748",
+            "time": 1200,
+            "description": "Currently reading: 'The Nix' by Nathan Hill " ,
+            "sound": "rain"
+        },
+        {
+            "id": 2,
+            "title": "Meditate",
+            "color": "#44BE93",
+            "time": 60,
+            "description": "Breathe in, breathe out...",
+            "sound": "rain"
+        }
+    ]

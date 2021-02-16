@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Habit Tracker</title>
+  </head>
+  <body>
+    <!-- Section with user info, list of current habits and 'ADD NEW' button -->
+    <section class="habits-list flex-col">
+      <div class="user-info flex-col">
+        <i class="fas fa-user-circle"></i>
+
+        <h3 class="hello-title">Hey, <span>Georgous!</span></h3>
+      </div>
+      <div class="habits">
+        <h3>Your habits</h3>
+        <ul>
+    
+        </ul>
+      </div>
+      <button class="add-new-btn">ADD NEW</button>
+    </section>
+    <!-- Section with selected habit info and player -->
+    <section class="habit-details flex-col">
+      <p class="start flex-col">Select one of your habits<span> or<br> create new habit</span>
+      </p>
+      <div class="habit-info">
+        <header class="habit-header">
+          <div class="habit-color"></div>
+          <h2 class="habit-title"></h2>
+          <div class="options">
+          <button class="more-options-btn flex-col">
+            <div class="button-dot"></div>
+            <div class="button-dot"></div>
+            <div class="button-dot"></div>
+          </button>
+          <div class="options-menu">
+              <li class="mark-done"><button class="mark-done-btn">Mark as done</button></li>
+              
+              <li class="delete"><button class="delete-btn">Delete habit</button></li>
+
+            </ul>
+          </div>
+        </div>
+        </header>
+        <p class="habit-time"></p>
+        <p class="habit-description">
+          
+        </p>
+      </div>
+
+      <div class="habit-timer">
+        <div class="timer">
+          <audio src="" class="sound" loop></audio>
+          <audio src="/sounds/ding.mp3" class="done-sound"></audio>
+          <svg class="track-outline" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="150" cy="150" r="139" stroke="#DFDFDF" stroke-width="22"/>
+            </svg>
+            <svg class="moving-outline" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="moving-outline-circle" cx="150" cy="150" r="139" stroke="black" stroke-width="22"/>
+              </svg>
+          <button class="play-btn"><img src="./img/play.svg" alt="Play icon"></button>
+        </div>
+        <div class="time-div">
+          <h3 class="time-display">0:00</h3>
+       </div>
+      </div>
+  
+    </section>
+    <!-- Section with calendar -->
+    <section class="calendar flex-col">
+      <button class="previous-date"><i class="fas fa-chevron-up"></i></button>
+      <ul class="dates-list flex-col">
+        <li>
+          <div class="date"></div>
+          <div class="done-habits">
+            <div class="done-habit color" data-color-calendar="#FF445B" style="background-color: rgb(255, 68, 91);"></div>
+            <div class="done-habit color" data-color-calendar="#F6C748" style="background-color: rgb(246, 199, 72);"></div>
+          </div>
+        </li>
+        <li>
+          <div class="date"></div>
+          <div class="done-habits">
+            <div class="done-habit color" data-color-calendar="#F6C748" style="background-color: rgb(246, 199, 72);"></div>
+            <div class="done-habit color" data-color-calendar="#44BE93" style="background-color: rgb(68, 190, 147);"></div>
+           </div>
+          </div>
+        </li>
+        <li>
+          <div class="date"></div>
+          <div class="done-habits">
+            <div class="done-habit color" data-color-calendar="#FF445B" style="background-color: rgb(255, 68, 91);"></div>
+            <div class="done-habit color" data-color-calendar="#F6C748" style="background-color: rgb(246, 199, 72);"></div>
+            <div class="done-habit color" data-color-calendar="#44BE93" style="background-color: rgb(68, 190, 147);"></div>
+        </div></li>
+        <li>
+          <div class="date"></div>
+          <div class="done-habits">
+        </div>
+      </li>
+        <li>
+          <div class="date"></div>
+          <div class="done-habits">
+        </div></li>
+        <li ><div class="date"></div>
+          <div class="done-habits">
+          </div></li>
+        <li>
+          <div class="date"></div><div class="done-habits">
+        </div></li>
+      
+      </ul>
+      <button class="next-date"><i class="fas fa-chevron-down"></i></button>
+    </section>
+    <!-- Add new habit modal -->
+    <div class="modal-add-new">
+      <div class="modal-container">
+        <button class="close-modal-btn">&times;</button>
+          <h2>Add new habit</h2>
+         
+          <form action="submit" class="form-add-new">
+          <div class='input-container flex-col'>
+            
+            <label for="title" class=" input-label">Title</label>
+            <input type="text" class="title-input" placeholder="Add title" required />
+          </div>
+          <div class='input-container flex-col'>
+            <label for="color" class="input-label">Color</label>
+              <input type="color" name="color" class="field-radio" required />
+              <span class="color-container" id="color-value"></span>
+          </div>
+            <div class='input-container flex-col'>
+            <label for="description" class=" input-label">Description</label>
+            <textarea
+              name="habit-description"
+              id="habit-description"
+              cols="40"
+              rows="2"
+              maxlength="200"
+              placeholder="Add description"
+            ></textarea>
+          </div>
+            <div class="input-container flex-col">
+            <label for="habit-time" class=" input-label">Minutes</label>
+            <input type="number" name="habit-time" min="0" max='25' placeholder="Add time (max. 25 min)" required />
+          </div>
+            <div class="input-container flex-col" name="music-select">
+              <label for="music" class="sounds-label input-label">Sound</label>
+              <label for="city" class="sound-options">
+              <label for="sea" class="sound-options"> <input type="radio" name="music" id="sea" value="sea" checked>
+              Sea</label>
+              <label for="rain" class="sound-options"><input type="radio" name="music" id="rain" value="rain">
+              Rain</label>
+            </div>
+          <input type="submit" value="ADD HABIT">
+          </form>
+        </button>
+      </div>
+    </div>
+  </div>
+    <script src="app.js"></script>
+  </body>
+</html>

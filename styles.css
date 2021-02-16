@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+:root {
+  --sand: #faf9f7;
+  --darkerSand: #968e80;
+  --darkSand: #dad5cf;
+  --teal: #016670;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input[type="submit"] {
+  border: none;
+  background: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  outline: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--darkSand);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+section,
+.options-menu {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.habits-list,
+.calendar {
+  flex: 1;
+  justify-content: space-between;
+  z-index: 1;
+  overflow: auto;
+  background-color: var(--sand);
+  border-radius: 1rem;
+}
+
+/* ------------------- Left section ------------------- */
+.habits-list {
+  align-items: center;
+  padding: 4rem 2rem 5rem 2rem;
+  margin: 1rem -1rem 1rem 1rem;
+  min-height: auto;
+}
+
+.user-info {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.avatar-img {
+  width: 4rem;
+  height: 4rem;
+  margin: 1.5rem;
+  fill: black;
+}
+
+.fa-user-circle {
+  font-size: 4rem;
+  margin: 1rem;
+  color: #dad5cf;
+}
+
+.hello-title {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.habits {
+  flex: 3;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.habits > h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.habit {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+  cursor: pointer;
+}
+
+.color {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+}
+
+.title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.time {
+  font-size: 0.8rem;
+}
+
+.add-new-btn {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  width: 50%;
+  background-color: var(--teal);
+  color: white;
+}
+
+/* ------------------- Central section ------------------- */
+.start {
+  height: 100%;
+  font-size: 1.7rem;
+  color: var(--darkerSand);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.start span {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.habit-details {
+  background-color: white;
+  flex: 3;
+  padding: 5rem 5rem 4rem 5rem;
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
+  margin: 1rem 0rem 1rem 0;
+  overflow: auto;
+}
+
+.habit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.habit-info {
+  flex: 1;
+  display: none;
+}
+
+@keyframes animateopacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.habit-color {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin-right: 1.2rem;
+}
+
+.habit-title {
+  flex: 1;
+  font-size: 2.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: animateopacity 1s;
+}
+
+.options {
+  position: relative;
+}
+.options-menu li {
+  padding: 0.2rem;
+}
+
+.more-options-btn {
+  height: 1.4rem;
+  width: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.more-options-btn > * {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background-color: lightGrey;
+}
+
+.options-menu {
+  display: none;
+  position: absolute;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  width: 9rem;
+  right: 0;
+  z-index: 10;
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.options:hover .options-menu {
+  display: block;
+}
+
+.habit-time {
+  font-weight: 600;
+}
+
+.habit-time,
+.habit-description {
+  padding: 0.7rem 0 0 3rem;
+  font-size: 1rem;
+}
+
+.habit-description {
+  max-height: 5rem;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+.habit-timer {
+  flex: 2;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer {
+  position: relative;
+  height: 19rem;
+  width: 19rem;
+}
+
+.timer svg,
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timer svg {
+  height: 20rem;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.play-btn img {
+  width: 80%;
+  transition: width 0.4s;
+}
+
+.play-btn:focus {
+  outline: none;
+}
+
+.play-btn img:hover {
+  width: 90%;
+  transition: width 0.3s ease;
+}
+.time-div {
+  margin-top: 2rem;
+}
+
+.time-display {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.done-today-btn {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  background-color: var(--teal);
+  color: white;
+  font-weight: 400;
+}
+
+/* ------------------- Rigth section ------------------- */
+
+.calendar {
+  padding: 1rem 1rem;
+  margin: 1rem 1rem 1rem -1rem;
+}
+
+.calendar > button {
+  font-size: 1.7rem;
+  flex: 1;
+  color: var(--teal);
+}
+.dates-list {
+  flex: 7;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.dates-list li {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.dates-list li:not(.today) {
+  color: var(--darkerSand);
+}
+
+.date {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.date > p > span {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.done-habits {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  height: 1.2rem;
+}
+
+.today {
+  background-color: white;
+  box-shadow: 0px 2px 4px#968e8030;
+}
+
+/* ---------------------------- Modal (adding new habit) --------------------------- */
+.modal-add-new {
+  display: none;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-container {
+  background-color: white;
+  padding: 2rem;
+  width: 50%;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  animation: animateopacity 0.3s;
+}
+
+.close-modal-btn {
+  float: right;
+  font-size: 1.7rem;
+  padding: 0 0.5rem;
+}
+
+.modal-container > h2 {
+  padding-left: 1rem;
+}
+
+textarea,
+input:not([type="color"]) {
+  resize: none;
+  border: 1px solid lightgrey;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: lightgrey;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-container {
+  justify-content: center;
+  margin: 1rem;
+}
+
+div[name="music-select"] {
+  margin-bottom: 3rem;
+}
+
+.sound-options:not(:last-child) {
+  margin-right: 2rem;
+}
+
+label:not[for="color"] {
+  display: block;
+}
+
+.input-label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+input[type="submit"] {
+  font-size: 1rem;
+  display: block;
+  width: 20%;
+  margin: auto;
+  font-weight: 600;
+  background-color: var(--teal);
+  color: white;
+  padding: 1rem 0;
+  border: none;
+}
+
+/* Media queries */
+@media only screen and (max-width: 1030px) {
+  body {
+    flex-direction: column;
+  }
+  .habits-list {
+    border-radius: 0;
+    margin: 0;
+    overflow: visible;
+    min-width: 26rem;
+  }
+  .user-info {
+    flex-direction: row;
+  }
+  .habit {
+    padding-right: 3rem;
+  }
+  .add-new-btn {
+    width: 20%;
+    min-width: 5rem;
+  }
+  .habit-details {
+    min-width: 26rem;
+    min-height: 45rem;
+    overflow: hidden;
+  }
+  .habit-time,
+  .habit-description {
+    padding-left: 0;
+  }
+  .calendar {
+    min-width: 26rem;
+    min-height: 45rem;
+    overflow: hidden;
+    margin: 0;
+  }
+  .modal-container {
+    width: 80%;
+  }
+
+  input[type="submit"] {
+    width: 40%;
+  }
+}
