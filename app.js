@@ -41,15 +41,12 @@ function printHabitsList(){
     const habitColor = document.querySelectorAll(".habit .color");
     habitColor.forEach((color, i) => {
         color.style.backgroundColor = `${habits[i].color}`
-    });
-
-   
+    });   
 }
 
 
 window.addEventListener('load', () => {
     printHabitsList();
-    showHabitInfo(habits, 2);
 });
 
     
@@ -57,9 +54,7 @@ window.addEventListener('load', () => {
 habitsList.addEventListener('click', (e) => {
     let currId;
     e.target.dataset.index ? currId = e.target.dataset.index : currId = e.target.parentNode.dataset.index;
-
    showHabitInfo(habits, currId);
-
 })
 
 
@@ -85,7 +80,7 @@ function showHabitInfo(arr, id){
 habitInfo.style.display = "block";
 habitTimer.style.display = "flex";
 startScreen.style.display = 'none';
-    let habit = arr[id];
+let habit = arr[id];
 
 habitTitle.textContent =`${habit.title}`;
 habitTitle.setAttribute('id',`${habit.id}`);
@@ -110,7 +105,6 @@ let seconds = Math.floor(duration % 60);
 seconds = seconds < 10 ? '0' + seconds : seconds;
 timeDisplay.textContent = `${minutes}:${seconds}`
 
-
 habitSound.ontimeupdate = () => {
     let currTime = habitSound.currentTime;
     let elapsed = duration - currTime;
@@ -128,11 +122,7 @@ if(currTime >= duration){
     habitSound.currentTime = 0;
     playPauseImg.src = './img/play.svg';
     markAsDone();
-}
-}
-
-
-}
+}}}
 
 
 //Playing/pausing sound
@@ -244,9 +234,6 @@ function addNewHabit(e) {
     showHabitInfo(habits, habit.id);
     this.reset();
     modalAddNew.style.display = "none";
-    
-    
-
 }
 
 
