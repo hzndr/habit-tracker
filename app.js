@@ -93,7 +93,7 @@ habitTime.textContent =`${habit.time / 60 >= 1 ? habit.time/60 + " min" : habit.
 habitTime.setAttribute('data-time', `${habit.time}`)
 habitDescription.textContent =`${habit.description}`;
 habitColor.setAttribute('data-color', `${habit.color}`)
-habitSound.setAttribute("src", `/sounds/${habit.sound}.mp3`);
+habitSound.setAttribute("src", `https://raw.githubusercontent.com/hzndr/habit-tracker/main/sounds/${habit.sound}.mp3`);
 
 const outline = document.querySelector('.moving-outline-circle');
 outline.setAttribute('stroke', `${habit.color}`);
